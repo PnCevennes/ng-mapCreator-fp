@@ -1,0 +1,63 @@
+{
+	"order" : 1,
+	"id": "default", 
+	"clustering": false,
+	"name": "Périmètre de quiétude", 
+	"center": {
+		"lat": 44.3266459,
+		"lng": 3.6072651,
+		"zoom": 10
+	},
+	"location":{
+		"url":"data/communes.json",
+		"name":"Communes"
+	},
+	"layers": { 
+		"baselayers": [
+		    {
+		        "name": "OpenCycleMap",
+		        "type": "xyz",
+		        "url": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+		        "active": false,
+		        "options":{}
+		    },
+		    {
+		        "name": "OpenStreetMap",
+		        "type": "xyz",
+		        "url": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+		        "active": true,
+		        "options":{}
+		    }
+		],
+		"overlay":{
+		        "name": "Perimetre quietude",
+		        "type": "geojson",
+		        "url": "data/exp_pq.geojson",
+		        "options" : "{style:function (feature) {return {color: $scope.mapOptions.layers.overlay.filters.code_sp.values[feature.properties.code_sp].color, weight: 1.3, opacity: 1, fillOpacity: 0.5 };},onEachFeature: function (feature, layer) {if (feature.properties, {noHide:false}) {layer.bindPopup(\"<h4>\"+$scope.mapOptions.layers.overlay.filters.code_sp.values[feature.properties.code_sp].label+\"</h4>\");}}}",
+		        "filters":{
+					"code_sp" :{
+						"name" : "Taxon",
+						"values" : {
+							"h_p":{"label":"Aigle botté", "color":"#FF6A00", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+							"h_f":{"label":"Aigle de Bonelli", "color":"maroon", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+							"a_c":{"label":"Aigle royal", "color":"orange", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+							"c_g":{"label":"Circaète Jean-le-Blanc", "color":"#B200FF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+							"f_p":{"label":"Faucon pélerin", "color":"#00FF90", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+							"b_b":{"label":"Hibou grand-duc", "color":"#0026FF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+							"g_f":{"label":"Vautour fauve", "color":"#00FFFF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+							"a_m":{"label":"Vautour moine", "color":"#FF0000", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}},
+							"n_p":{"label":"Vautour percnoptère", "color":"#0094FF", "visible":true, "periode":{"1":0, "2":0, "3":1, "4":1, "5":1, "6":1, "7":1, "8":1, "9":0, "10":0, "11":0, "12":0}}
+						}
+					},
+					"code_etat" : {
+						"name":"Etat",
+						"values" : {
+							"act":{"label":"Actif","visible":true},
+							"ina":{"label":"Inactif","visible":true},
+							"ind":{"label":"Indéterminé","visible":true}
+						}
+					}
+		        }
+		    }
+	}
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<title>PQ</title>
+	<meta charset="utf-8" />
+
+	<link rel="stylesheet" href="css/leaflet.css" />
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="js/ui-bootstrap/ui-bootstrap-custom-0.14.3-csp.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+</head>
+<body ng-app="MapCreatorApp" ng-controller="MainMapCtl">
+	
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<img alt="Brand" src="img/logo.png" style="height: 40px; padding: 0px; margin-top: -15px;">
+				</a>
+				<span class="navbar-brand" >{{mapOptions.name}}</span>
+			</div>
+			
+			<div ng-include src="'templates/filterpanel.html'"></div>
+		</div>
+	</nav>
+
+	<div id="container">
+		<div id="mapc"></div>
+	</div>
+
+
+	<div ng-include src="'templates/infopanel.html'"></div>
+	
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/Leaflet/leaflet.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="js/ui-bootstrap/ui-bootstrap-custom-0.14.3.js"></script>
+	<script src="js/ui-bootstrap/ui-bootstrap-custom-tpls-0.14.3.js"></script>
+	<script src="app.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<footer ng-if="infoObj" class="footer" id="info-popup">
+	<div class="row"  id="info-header">
+		<h3><span  id="info-title">{{mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].label}}</span>
+		<span class="glyphicon glyphicon-remove pull-right" onclick="$('#info-popup').hide(); return false;"></span>
+		</h3>
+	</div>
+	<div class="row" id="info-content">
+		<div class="col-md-2 col-xs-6" id="info-picture">
+			<img id="img-sp" src="data/img/img_{{infoObj.code_sp}}.jpg" alt="{{infoObj.code_sp}}" style="width:100%;">
+		</div>
+		<div class="col-md-3  col-xs-6" id="info-pq">
+			<div id="info-sp">
+				<div><b>Localisé en : </b>{{infoObj.zone_pnc}}
+		    	</div><div><b>Sur le massif : </b>{{infoObj.massifs}}</div>
+			</div>
+			<div id='periode-quietude'>
+				<b>Période de quiétude à respecter</b>
+				<div class="table-responsive">
+					<div id='periode-1' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['1']==1 ? 'periode-active' : 'periode-inactive'">J</div>
+					<div id='periode-2' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['2']==1 ? 'periode-active' : 'periode-inactive'">F</div>
+					<div id='periode-3' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['3']==1 ? 'periode-active' : 'periode-inactive'">M</div>
+					<div id='periode-4' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['4']==1 ? 'periode-active' : 'periode-inactive'">A</div>
+					<div id='periode-5' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['5']==1 ? 'periode-active' : 'periode-inactive'">M</div>
+					<div id='periode-6' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['6']==1 ? 'periode-active' : 'periode-inactive'">J</div>
+					<div id='periode-7' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['7']==1 ? 'periode-active' : 'periode-inactive'">J</div>
+					<div id='periode-8' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['8']==1 ? 'periode-active' : 'periode-inactive'">A</div>
+					<div id='periode-9' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['9']==1 ? 'periode-active' : 'periode-inactive'">S</div>
+					<div id='periode-10' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['10']==1 ? 'periode-active' : 'periode-inactive'">O</div>
+					<div id='periode-11' class="col-md-1 col-xs-1" ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['11']==1 ? 'periode-active' : 'periode-inactive'">N</div>
+					<div id='periode-12' class="col-md-1 col-xs-1"ng-class="mapOptions.layers.overlay.filters.code_sp.values[infoObj.code_sp].periode['12']==1 ? 'periode-active' : 'periode-inactive'">D</div>
+				</div>
+				<div id="contact">XXXXXX</div>
+			</div>
+		</div>
+		<div class="col-md-7  col-xs-12" id="info-reglementation">"Attention réglementation ou conseil Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg  Derfsdg sdf sdgsdgffdgtert fsdgdfgd dfgdfg dfg dfg </div>
+	</div>
+</footer>
