@@ -29,6 +29,21 @@ Copier les fichiers de configuration
 
 ###Localisation
 
+* Paramètres
+** name : nom du filtre
+** url : url du service de localisation. Doit renvoyer les données au format json comme spécifié ci dessous
+* Format de données attendu
+```json
+       [ 
+        {
+            "label":"Saint-Paul-le-Jeune",
+            "st_xmax":4.18990857622319,
+            "st_xmin":4.12459689615497,
+            "st_ymax":44.3544152806611,
+            "st_ymin":44.3120509291848
+          },
+        ]
+```
 ##Technologies
 
 * Angularjs
