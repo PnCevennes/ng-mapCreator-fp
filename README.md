@@ -2,14 +2,20 @@
 
 Application permettant de générer une carte avec un panneau permettant de filtrer les données d'une couche geojson et un panel d'information customisable.
 
+##Dépendance
+*bower
+```
+  npm install bower
+```
 
 ##Installation
 
-Copier le dépot
+Copier le dépot et lancer bower
 ```
   wget https://github.com/PnCevennes/ng-mapCreator-fp/archive/master.zip
   unzip master.zip
   cd ng-mapCreator-fp
+  bower install
 ```
 Copier les fichiers de configuration
 ```
