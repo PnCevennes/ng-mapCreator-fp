@@ -1,6 +1,6 @@
-# Générateur de carte avec filtre et paneaux d'information
+# Générateur de carte avec filtres et panneau d'information
 
-Application permettant de générer une carte avec un panel permettant de filtrer les données d'une couche geojson et un panel d'information customisable.
+Application permettant de générer une carte avec un panneau permettant de filtrer les données d'une couche geojson et un panel d'information customisable.
 
 
 ##Installation
@@ -21,7 +21,7 @@ Copier les fichiers de configuration
 
 ###Fonds de carte
 
-###Couche principales
+###Couches principales
 
 ###Filtre
 
@@ -31,7 +31,7 @@ Copier les fichiers de configuration
 
 * Paramètres
 ** name : nom du filtre
-** url : url du service de localisation. Doit renvoyer les données au format json comme spécifié ci dessous
+** url : url du service de localisation. Doit renvoyer les données au format json comme spécifié ci-dessous
 * Format de données attendu
 ```json
        [ 
