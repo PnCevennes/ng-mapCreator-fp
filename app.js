@@ -4,7 +4,7 @@ var app = angular.module('MapCreatorApp', ['ui.bootstrap']);
 
 app.controller('MainMapCtl',
     ['$scope', '$http','LeafletServices', '$rootScope', function ($scope, $http, LeafletServices, $rootScope) {
-		$scope.baselayers = [],
+		$scope.baselayers = {},
 		$scope.mainLayer = null,
 		$scope.mainLayerData = null,
 		

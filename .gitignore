@@ -8,4 +8,5 @@ data/*
 #Template Files
 templates/infopanel.html
 
-
+#Bower files
+bower_components
