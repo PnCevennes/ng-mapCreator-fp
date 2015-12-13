@@ -85,29 +85,29 @@ Pour connaitre l'ensemble des interractions se référer à l'API leaflet : http
 ####Filtres
 
 * Paramètres
-** name : nom du filtre
-** values : liste des valeurs des filtres
+	* name : nom du filtre
+	* values : liste des valeurs des filtres
 
 * Format de données attendu
 ```json
 "filters":{
-		"ma_variable_1" :{
-			"name" : "Variable 1",
-			"values" : {
-				"v1_1":{"label":"Val 1", "visible":true},
-				...
-				"v1_x":{"label":"Val x", "visible":true}
-			}
-		},
-		"ma_variable_2" : {
-			"name":"Variable 2",
-			"values" : {
-				"v2_1":{"label":"Val 1", "visible":true},
-				...
-				"v2_x":{"label":"Val x", "visible":true}
-		  }
-    }
-  }
+	"ma_variable_1" :{
+		"name" : "Variable 1",
+		"values" : {
+			"v1_1":{"label":"Val 1", "visible":true},
+			...
+			"v1_x":{"label":"Val x", "visible":true}
+		}
+	},
+	"ma_variable_2" : {
+		"name":"Variable 2",
+		"values" : {
+			"v2_1":{"label":"Val 1", "visible":true},
+			...
+			"v2_x":{"label":"Val x", "visible":true}
+	  }
+}
+}
 
 ```
 ###Panel d'information
@@ -116,8 +116,8 @@ Modifier le fichier templates/infopanel.html
 ###Localisation
 
 * Paramètres
-** name : nom du filtre
-** url : url du service de localisation. Doit renvoyer les données au format json comme spécifié ci-dessous
+	* name : nom du filtre
+	* url : url du service de localisation. Doit renvoyer les données au format json comme spécifié ci-dessous
 
 * Format de données attendu
 ```json
