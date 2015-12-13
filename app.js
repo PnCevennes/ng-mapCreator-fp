@@ -5,16 +5,16 @@ var app = angular.module('MapCreatorApp', ['ui.bootstrap']);
 app.controller('MainMapCtl',
     ['$scope', '$http','LeafletServices', '$rootScope', function ($scope, $http, LeafletServices, $rootScope) {
 		$scope.baselayers = [],
-		$scope.mainLayer=null,
-		$scope.mainLayerData=null,
+		$scope.mainLayer = null,
+		$scope.mainLayerData = null,
 		
 		$('#info-popup').hide();
 		
-		$scope.map  = L.map('mapc', { zoomControl:true });
+		$scope.map = L.map('mapc', { zoomControl:true });
 
 		$http.get("data/maps.json").then(
 			function(results) {
-				//baselayers
+				//----Fonds de carte
 				angular.forEach(results.data.layers.baselayers, function(value, key) {
 					var l = LeafletServices.loadData(value);
 					$scope.baselayers[key] = l;
@@ -50,7 +50,7 @@ app.controller('MainMapCtl',
 					}
 				);
 				
-				//--Selecteur de localisation
+				//----Selecteur de localisation
 				if (results.data.location) {
 					$http.get(results.data.location.url).then(
 						function(results) {    
@@ -81,17 +81,18 @@ app.controller('MainMapCtl',
 		//Action filtre d'un élément sur la carte
 		$scope.dofilterOnMap= function () {
 			$scope.map.removeLayer($scope.mainLayer);
-			var options = angular.extend($scope.mainLayerOptions,
-					{
-						filter: function(feature, layer) {
-							var fil=0;
-							angular.forEach($scope.mapOptions.layers.overlay.filters, function(arrayFilter, key) {
-								if (feature.properties[key]) fil += arrayFilter.values[feature.properties[key]].visible;
-							});
-							return fil > 1 ? true : false ;
-						}
+			var options = angular.extend(
+				$scope.mainLayerOptions,
+				{
+					filter: function(feature, layer) {
+						var fil=0;
+						angular.forEach($scope.mapOptions.layers.overlay.filters, function(arrayFilter, key) {
+							if (feature.properties[key]) fil += arrayFilter.values[feature.properties[key]].visible;
+						});
+						return fil > 1 ? true : false ;
 					}
-				);
+				}
+			);
 		 	$scope.mainLayer = new L.geoJson($scope.mainLayerData,options);
 			$scope.mainLayer.addTo($scope.map);
 		}
@@ -102,9 +103,7 @@ app.controller('MainMapCtl',
 				arrayFilter.visible = toggleStatus;
 			});
 			$scope.dofilterOnMap();
-		}
-		
-		
+		}		
     }]
 );
 
@@ -114,11 +113,12 @@ app.directive('dirFilterElement', function() {
     scope: {
       key: '=key',
       filterInfo: '=filter',
-      state:'=state',
       onCheck:'&'
     },
-    templateUrl: 'templates/directive-filterpanel.html',
-    
+    templateUrl: 'templates/directive-filterpanel.html',    
+	controller: function($scope){
+		$scope.state = angular.isDefined($scope.state) ? Boolean($scope.state) : true;
+	}
   };
 });
 
