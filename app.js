@@ -1,3 +1,5 @@
+"use strict";
+
 var app = angular.module('MapCreatorApp', ['ui.bootstrap']);
 
 app.controller('MainMapCtl',
@@ -8,8 +10,8 @@ app.controller('MainMapCtl',
 		
 		$('#info-popup').hide();
 		
-		map = L.map('mapc', { zoomControl:true });
-		$scope.map = map;
+		$scope.map  = L.map('mapc', { zoomControl:true });
+
 		$http.get("data/maps.json").then(
 			function(results) {
 				//baselayers
@@ -17,10 +19,10 @@ app.controller('MainMapCtl',
 					var l = LeafletServices.loadData(value);
 					$scope.baselayers[key] = l;
 					if (value.active) {
-					  $scope.baselayers[key].map.addTo(map);
+					  $scope.baselayers[key].map.addTo($scope.map);
 					}
 				});
-				map.setView(new L.LatLng(results.data.center.lat, results.data.center.lng),results.data.center.zoom);
+				$scope.map.setView(new L.LatLng(results.data.center.lat, results.data.center.lng),results.data.center.zoom);
 				
 				$scope.mapOptions = results.data;
 				
@@ -44,11 +46,10 @@ app.controller('MainMapCtl',
 					function(results) {    
 					  $scope.mainLayerData = results.data;
 					  $scope.mainLayer = new L.geoJson(results.data,$scope.mainLayerOptions);
-					  map.addLayer($scope.mainLayer );
+					  $scope.map.addLayer($scope.mainLayer );
 					}
 				);
 				
-					
 				//--Selecteur de localisation
 				if (results.data.location) {
 					$http.get(results.data.location.url).then(
@@ -131,11 +132,9 @@ app.factory('LeafletServices', ['$http', function($http) {
         this.layer.active = layerdata.active;
         
         if (layerdata.type == 'xyz' || layerdata.type == 'ign') {
+		  var url = layerdata.url;
           if ( layerdata.type == 'ign') {
             url = 'https://gpp3-wxs.ign.fr/' + layerdata.key + '/geoportail/wmts?LAYER='+layerdata.layer+'&EXCEPTIONS=text/xml&FORMAT=image/jpeg&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}'; 
-          }
-          else {
-            url = layerdata.url;
           }
           this.layer.map = new L.TileLayer(url,layerdata.options);
         }
