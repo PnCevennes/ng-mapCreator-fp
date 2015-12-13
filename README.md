@@ -2,13 +2,12 @@
 
 Application permettant de générer une carte avec un panneau permettant de filtrer les données d'une couche geojson et un panel d'information customisable.
 
-##Dépendance
-*bower
+
+##Installation
+* Préqueris
 ```
   npm install bower
 ```
-
-##Installation
 
 Copier le dépot et lancer bower
 ```
@@ -29,9 +28,10 @@ Copier les fichiers de configuration
 
 ###Couches principales
 
-###Filtre
+###Filtres
 
 ###Panel d'information
+Modifier le fichier templates/infopanel.html
 
 ###Localisation
 
