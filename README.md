@@ -9,14 +9,15 @@ Application permettant de générer une carte avec un panneau permettant de filt
   npm install bower
 ```
 
-Copier le dépot et lancer bower
+* Copier le dépot et lancer bower
 ```
   wget https://github.com/PnCevennes/ng-mapCreator-fp/archive/master.zip
   unzip master.zip
   cd ng-mapCreator-fp
   bower install
 ```
-Copier les fichiers de configuration
+
+* Copier les fichiers de configuration
 ```
   cp data/maps.json.sample data/maps.json
   cp templates/infopanel.html.sample templates/infopanel.html
