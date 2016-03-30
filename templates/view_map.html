@@ -1,0 +1,21 @@
+
+<div ng-include src="'templates/filterpanel.html'"></div>
+
+<div id="container">
+  <div id="mapc"></div>
+  <form class="navbar-form navbar-left" id="maplocation" style="
+  position: absolute;
+  top: 50px;
+  right: 3px;">
+    <div class="form-group">
+        <span><i class="glyphicon glyphicon-search" ng-click="showloc = !showloc" ng-init="showloc=false"></i></span>
+        <input ng-show="showloc" type="text" id="searchCommuneInput" ng-model="$parent.selectedLocation"
+          uib-typeahead="loc as loc.label for loc in ::locationData | filter:{label:$viewValue} | limitTo:8"
+          class="form-control"
+          typeahead-editable="false">
+    </div>
+  </form>
+
+</div>
+
+<div ng-include src="'templates/infopanel.html'"></div>

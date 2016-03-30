@@ -1,9 +1,12 @@
 <!doctype html>
 <html>
 <head>
-	<title>PQ</title>
+	<title>Atlas paysages</title>
 	<meta charset="utf-8" />
 
+	<script type="text/javascript">
+		document.write('<base href="'+window.location.pathname+'">');
+	</script>
 	<link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
 	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet">
@@ -11,39 +14,15 @@
 
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 </head>
-<body ng-app="MapCreatorApp" ng-controller="MainMapCtl">
-	
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">
-					<img alt="Brand" src="img/logo.png" style="height: 40px; padding: 0px; margin-top: -15px;">
-				</a>
-				<span class="navbar-brand" >{{::mapOptions.name}}</span>
-			</div>
-			
-			<div ng-include src="'templates/filterpanel.html'"></div>
-		</div>
-	</nav>
+<body ng-app="MapCreatorApp">
 
-	<div id="container">
-		<div id="mapc"></div>
-	</div>
+	<div ng-view></div>
 
-
-	<div ng-include src="'templates/infopanel.html'"></div>
-	
-	
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/leaflet/dist/leaflet.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 	<script src="app.js"></script>
