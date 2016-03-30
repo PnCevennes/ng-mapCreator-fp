@@ -21,6 +21,7 @@ Application permettant de générer une carte avec un panneau permettant de filt
 ```
   cp data/maps.json.sample data/maps.json
   cp templates/infopanel.html.sample templates/infopanel.html
+  cp templates/filterpanel.html.sample templates/filterpanel.html
 ```
 
 ##Configuration
