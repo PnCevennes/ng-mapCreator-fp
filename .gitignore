@@ -7,6 +7,7 @@ data/*
 
 #Template Files
 templates/infopanel.html
+templates/filterpanel.html
 
 #Bower files
 bower_components
