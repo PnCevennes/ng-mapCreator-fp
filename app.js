@@ -22,9 +22,9 @@ function($routeProvider, $locationProvider) {
 
 
 app.controller('MainMapCtl',
-['$scope', '$http','LeafletServices', '$rootScope', '$compile','$routeParams','$location',
+['$scope', '$http','LeafletServices', '$rootScope', '$compile','$routeParams','$location', '$sce',
 
-function ($scope, $http, LeafletServices, $rootScope, $compile,  $routeParams, $location) {
+function ($scope, $http, LeafletServices, $rootScope, $compile,  $routeParams, $location, $sce) {
   $scope.baselayers = {},
   $scope.mainLayer = null,
   $scope.mainLayerData = null,
@@ -47,10 +47,41 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,  $routeParams, $
 
       //----Couche principale
       //options
+      // Ajout
+      var info = L.control({position:'topleft'});
+
+      if ($scope.mapOptions.layers.overlay.tooltip.display){
+        info.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info');
+            this.update();
+            return this._div;
+        };
+        info.update = function (props) {
+
+            this._div.innerHTML = (props ?
+              eval($scope.mapOptions.layers.overlay.tooltip.content)
+              : '');
+        };
+        info.addTo($scope.map);
+      }
+
       $scope.mainLayerOptions = eval("("+(results.data.layers.overlay.options || {}) +")");
       $scope.mainLayerOptions.customOnEachFeature = $scope.mainLayerOptions.onEachFeature || function () {};
+
       $scope.mainLayerOptions.onEachFeature = function(feature, layer) {
         $scope.mainLayerOptions.customOnEachFeature(feature, layer);
+
+        if ($scope.mapOptions.layers.overlay.tooltip.display){
+          layer.on({
+            mouseover : function(e) {
+                info.update(layer.feature.properties);
+            },
+            mouseout : function(e) {
+                info.update();
+            }
+          });
+        }
+
         layer.on({
           click : function(e){
             $rootScope.$apply($rootScope.$broadcast("feature:click", layer))
