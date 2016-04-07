@@ -2,6 +2,7 @@
 
 Application permettant de générer une carte avec un panneau permettant de filtrer les données d'une couche geojson et un panel d'information customisable.
 
+exemple : http://atlas.cevennes-parcnational.net/paysages/
 
 ##Installation
 * Préqueris
