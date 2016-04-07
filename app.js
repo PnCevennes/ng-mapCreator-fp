@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('MapCreatorApp', ['ngRoute', 'ui.bootstrap']);
+var app = angular.module('MapCreatorApp', ['ngRoute', 'ui.bootstrap', 'angularSpinner']);
 
 
 app.config(['$routeProvider','$locationProvider',
@@ -22,15 +22,19 @@ function($routeProvider, $locationProvider) {
 
 
 app.controller('MainMapCtl',
-['$scope', '$http','LeafletServices', '$rootScope', '$compile','$routeParams','$location', '$sce',
+['$scope', '$http','LeafletServices', '$rootScope', '$compile','$routeParams','$location', '$sce','usSpinnerService',
 
-function ($scope, $http, LeafletServices, $rootScope, $compile,  $routeParams, $location, $sce) {
+function ($scope, $http, LeafletServices, $rootScope, $compile,  $routeParams, $location, $sce, usSpinnerService) {
   $scope.baselayers = {},
   $scope.mainLayer = null,
   $scope.mainLayerData = null,
   $scope.gloc =  $location,
   $('#info-popup').hide();
   $scope.map = L.map('mapc', { zoomControl:true });
+
+  //Démarrage du spinner
+  usSpinnerService.spin('spinner-1');
+
   $http.get("data/maps.json").then(
     function(results) {
       //----Fonds de carte
@@ -108,7 +112,8 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,  $routeParams, $
               }
             });
           }
-
+          //Arret du spinner
+          usSpinnerService.stop('spinner-1');
         }
       );
 
