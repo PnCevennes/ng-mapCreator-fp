@@ -12,6 +12,7 @@
         <input ng-show="showloc" type="text" id="searchCommuneInput" ng-model="$parent.selectedLocation"
           uib-typeahead="loc as loc.label for loc in ::locationData | filter:{label:$viewValue} | limitTo:8"
           class="form-control"
+          placeholder="Commune"
           typeahead-editable="false">
     </div>
   </form>
