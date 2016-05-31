@@ -159,6 +159,7 @@ a.clickable:hover { text-decoration:none; }
     -o-transition:      all 1s  ease;
     -ms-transition:     all 1s  ease;
 }
+
 ul {
 	padding:0px;
 }
@@ -223,4 +224,11 @@ ul {
 .info h4 {
     margin: 0 0 5px;
     color: #777;
+}
+
+.filters {
+    background: rgba(51, 48, 48, 0.82) none repeat scroll 0% 0%
+}
+.filter-header {
+    border-bottom: 1px solid white;
 }

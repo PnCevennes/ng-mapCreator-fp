@@ -54,6 +54,7 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,  $routeParams, $
       // Ajout
       var info = L.control({position:'topleft'});
 
+      if (!$scope.mapOptions.layers.overlay.tooltip) $scope.mapOptions.layers.overlay.tooltip = {};
       if ($scope.mapOptions.layers.overlay.tooltip.display){
         info.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info');
@@ -156,7 +157,8 @@ function ($scope, $http, LeafletServices, $rootScope, $compile,  $routeParams, $
       item.setStyle({color: 'yellow', fillColor:'yellow'});
     }
     $scope.infoObj = item.feature.properties;
-    $('#filter-panel').collapse('hide');
+    // $('#filter-panel').collapse('hide');
+    $('.dropdown').removeClass('open');
     $('#info-popup').show();
   });
 
